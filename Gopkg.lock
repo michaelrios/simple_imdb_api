@@ -2,6 +2,18 @@
 
 
 [[projects]]
+  name = "github.com/caarlos0/env"
+  packages = ["."]
+  revision = "1cddc31c48c56ecd700d873edb9fd5b6f5df922a"
+  version = "v3.3.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/gocarina/gocsv"
+  packages = ["."]
+  revision = "b8c38cb1ba36857e7f9c1ef75c6e59e11ed93e37"
+
+[[projects]]
   name = "github.com/gorilla/context"
   packages = ["."]
   revision = "08b5f424b9271eedf6f9f0ce86cb9396ed337a42"
@@ -12,6 +24,12 @@
   packages = ["."]
   revision = "e3702bed27f0d39777b0b37b664b6280e8ef8fbf"
   version = "v1.6.2"
+
+[[projects]]
+  name = "github.com/pkg/errors"
+  packages = ["."]
+  revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
+  version = "v0.8.0"
 
 [[projects]]
   name = "github.com/segmentio/ksuid"
@@ -40,9 +58,21 @@
   ]
   revision = "1c9583448a9c3aa0f9a6a5241bf73c0bd8aafded"
 
+[[projects]]
+  branch = "v2"
+  name = "gopkg.in/mgo.v2"
+  packages = [
+    ".",
+    "bson",
+    "internal/json",
+    "internal/sasl",
+    "internal/scram"
+  ]
+  revision = "9856a29383ce1c59f308dd1cf0363a79b5bef6b5"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "b721a42badadd48e36d445b48eb53dd50d54283133d54934ee0ea3ab6f038b0f"
+  inputs-digest = "45283b54351ecbe127a79892ed4a61a7d50d439f79e4ed75a5dc9b0775b79bda"
   solver-name = "gps-cdcl"
   solver-version = 1

@@ -36,3 +36,7 @@
 [prune]
   go-tests = true
   unused-packages = true
+
+[[constraint]]
+  name = "github.com/caarlos0/env"
+  version = "3.3.0"

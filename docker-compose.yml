@@ -8,22 +8,21 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - "MYSQL_DATABASE=imdb"
-      - "MYSQL_USER=imdb_app"
-      - "MYSQL_PASSWORD=secret_imdb_app"
-      - "MYSQL_ROOT_PASSWORD=super_secret_imdb_app"
+      - "MONGO_HOSTS=mongoDB:27017"
+      - "MONGO_USER=user"
+      - "MONGO_PASS=pass"
+      - "MONGO_DATABASE=simple_imdb_api"
     networks:
       - imdbapi
 
-  mysqlDB:
-    image: "mysql:5.7"
+  mongoDB:
+    image: "mongo:3.0"
     ports:
-      - "3306:3306"
+      - "27017:27017"
     environment:
-      - "MYSQL_DATABASE=imdb"
-      - "MYSQL_USER=imdb_app"
-      - "MYSQL_PASSWORD=secret_imdb_app"
-      - "MYSQL_ROOT_PASSWORD=super_secret_imdb_app"
+      - "MONGO_INITDB_ROOT_USERNAME=user"
+      - "MONGO_INITDB_ROOT_PASSWORD=pass"
+      - "MONGO_INITDB_DATABASE=simple_imdb_api"
     networks:
       - imdbapi
 

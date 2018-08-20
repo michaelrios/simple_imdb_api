@@ -6,14 +6,14 @@ import (
 )
 
 type Dependencies struct {
-	DB     SQL
-	logger *logrus.Logger
+	DB     DB
+	Logger *logrus.Logger
 }
 
 func (deps *Dependencies) SetBaseLogger(logger *logrus.Logger) {
-	deps.logger = logger
+	deps.Logger = logger
 }
 
-func (deps *Dependencies) GetLogger() *logrus.Entry {
-	return deps.logger.WithField("requestID", ksuid.New().String())
+func (deps *Dependencies) GetRequestLogger() *logrus.Entry {
+	return deps.Logger.WithField("requestID", ksuid.New().String())
 }

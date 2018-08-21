@@ -6,7 +6,6 @@ import (
 	"github.com/gocarina/gocsv"
 	"github.com/michaelrios/simple_imdb_api/core"
 	"net/http"
-	"sort"
 	"sync"
 )
 
@@ -34,7 +33,7 @@ func (api *API) GetMovies(writer http.ResponseWriter, request *http.Request) {
 
 	var movies []Movie
 	err = GetMovieRepository(api.DB.Copy()).
-		getCollection().Find(query).Limit(10).All(&movies)
+		getCollection().Find(query).Sort("-rating").Limit(10).All(&movies)
 	if err != nil {
 		logger.WithError(err).Error("Failed querying for movies")
 		respond(writer, http.StatusBadRequest, []byte("something failed while querying"))
@@ -46,10 +45,6 @@ func (api *API) GetMovies(writer http.ResponseWriter, request *http.Request) {
 		respond(writer, http.StatusNotFound, []byte("movies not found"))
 		return
 	}
-
-	sort.Slice(movies, func(i, j int) bool {
-		return movies[i].Rating > movies[j].Rating
-	})
 
 	movieBytes, err := json.Marshal(movies)
 	if err != nil {

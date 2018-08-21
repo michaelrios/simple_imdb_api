@@ -48,7 +48,7 @@ func (api *API) GetMovies(writer http.ResponseWriter, request *http.Request) {
 	}
 
 	sort.Slice(movies, func(i, j int) bool {
-		return movies[i].Rank < movies[j].Rank
+		return movies[i].Rating > movies[j].Rating
 	})
 
 	movieBytes, err := json.Marshal(movies)

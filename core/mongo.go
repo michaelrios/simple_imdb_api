@@ -87,8 +87,6 @@ type MongoCollection struct {
 // Collection is an interface to access to the collection struct.
 type Collection interface {
 	Find(query interface{}) *mgo.Query
-	Count() (n int, err error)
 	Insert(docs ...interface{}) error
-	Remove(selector interface{}) error
 	Update(selector interface{}, update interface{}) error
 }

@@ -34,7 +34,7 @@ func (api *API) GetMovies(writer http.ResponseWriter, request *http.Request) {
 
 	var movies []Movie
 	err = GetMovieRepository(api.DB.Copy()).
-		getCollection().Find(query).All(&movies)
+		getCollection().Find(query).Limit(10).All(&movies)
 	if err != nil {
 		logger.WithError(err).Error("Failed querying for movies")
 		respond(writer, http.StatusBadRequest, []byte("something failed while querying"))
